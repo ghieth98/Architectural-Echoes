@@ -1,22 +1,16 @@
-# Use the official Node.js base image
-FROM node:latest as build-stage
+FROM node:latest
 
-# Set the working directory in the container
 WORKDIR /app
 
-# Copy the package.json and package-lock.json files
+# Copy the package.json and package-lock.json files separately to leverage Docker layer caching
 COPY package*.json ./
-
-# Install Node.js dependencies
 RUN npm install
 
-# Copy the rest of the application code
+# Copy the rest of the frontend code
 COPY . .
 
-# Build the Vue.js application
-RUN npm run build
+# Expose the port on which Vue.js will run
+EXPOSE 8080
 
-FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /app/dist /usr/share/nginx/html
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+# Start the Vue.js app
+CMD ["npm", "run", "dev"]
