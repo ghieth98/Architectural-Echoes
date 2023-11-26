@@ -1,1 +1,4 @@
-backend/.venv
+.idea/*
+backend/venv
+backend
+
