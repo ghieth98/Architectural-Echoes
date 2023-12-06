@@ -1,11 +1,11 @@
-FROM python:3.9
+FROM python:latest
 
 WORKDIR /app
 
 # Copy the requirements file separately to leverage Docker layer caching
 COPY requirements.txt .
-RUN python -m venv venv
-RUN venv/bin/pip install --no-cache-dir -r requirements.txt
+#RUN python -m venv venv
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code
 COPY . .
@@ -18,4 +18,5 @@ ENV FLASK_APP=app.py
 ENV FLASK_RUN_HOST=0.0.0.0
 
 # Activate the virtual environment and start the Flask app
-CMD ["venv/bin/python", "-m", "flask", "run"]
+
+CMD ["flask",  "run"]
