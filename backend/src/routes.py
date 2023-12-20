@@ -1,4 +1,6 @@
 from flask import Blueprint
+
+from src.controllers.home_controller import home_controller
 from src.controllers.auth_controller import user_controller
 from src.controllers.architect_controller import architect_controller
 from src.controllers.project_controller import project_controller
@@ -10,3 +12,4 @@ api = Blueprint('api', __name__)
 api.register_blueprint(user_controller)
 api.register_blueprint(architect_controller)
 api.register_blueprint(project_controller)
+api.register_blueprint(home_controller)

@@ -1,5 +1,8 @@
 from flask import Flask
 import os
+
+from flask_cors import CORS
+
 from src.config.config import Config
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
@@ -28,6 +31,8 @@ db = SQLAlchemy(app)
 
 # Flask migrate instance to handle migrations
 migrate = Migrate(app, db)
+
+cors = CORS(app, resources={r"/api/*": {"origins": "*"}})
 
 # Import models to let the migrate tool know
 from src.models.architect import Architect
