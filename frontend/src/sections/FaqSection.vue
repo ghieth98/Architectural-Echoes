@@ -1,5 +1,4 @@
 <script setup>
-import faqs from "../data/faqs.js";
 import { ref } from "vue";
 
 let isOpen = ref(1);
