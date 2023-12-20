@@ -34,7 +34,8 @@ items = article.find_elements("xpath",
 
 csv_file = open('echoes_scrape.csv', 'w')
 csv_writer = csv.writer(csv_file)
-csv_writer.writerow(['name', 'education', 'quote'])
+
+csv_writer.writerow(['name', 'image', 'quote', 'age', 'place_of_birth', 'projects'])
 
 for item in items:
     try:
@@ -51,14 +52,15 @@ for item in items:
                                 ".//div[@class='blogItem_bottomContentWrapper__Wmx64']/div[@class='container_container__53t32']/div[@class='container_innerContainer__ulE_r']").text
         print(bio)
 
-        age = item.find_element("xpath", ".//div[@class='blogItem_bottomContentWrapper__Wmx64']/ul/li[1]").text
+        age = item.find_element("xpath", ".//div[@class='blogItem_bottomContentWrapper__Wmx64']/ul/li[1]").text.strip('Age: ')
         print(age)
 
         place_of_birth = item.find_element("xpath",
-                                           ".//div[@class='blogItem_bottomContentWrapper__Wmx64']/ul/li[2]").text
+                                           ".//div[@class='blogItem_bottomContentWrapper__Wmx64']/ul/li[2]").text.strip('Place of Birth: ')
+
         print(place_of_birth)
 
-        projects = item.find_element("xpath", ".//div[@class='blogItem_bottomContentWrapper__Wmx64']/ul/li[3]").text
+        projects = item.find_element("xpath", ".//div[@class='blogItem_bottomContentWrapper__Wmx64']/ul/li[3]").text.strip('Structures: ').split(',')
         print(projects)
     except Exception as e:
         architect_name = None
@@ -72,4 +74,4 @@ for item in items:
 
 csv_file.close()
 
-# driver.quit()
+driver.quit()
