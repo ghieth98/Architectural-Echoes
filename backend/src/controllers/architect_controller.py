@@ -1,11 +1,9 @@
 """
 Restful API actions for architects
 """
-from urllib import response
 
-from src import db
 from src.models.architect import Architect
-from flask import abort, jsonify, Blueprint, Response, json
+from flask import jsonify, Blueprint
 from flasgger.utils import swag_from
 
 # architect controller blueprint to be registered with api blueprint
@@ -25,7 +23,6 @@ def index():
     for architect in architects:
         list_architects.append(architect.to_dict())
     return jsonify(list_architects)
-
 
 
 @architect_controller.route('/architects/<architect_id>', methods=['GET'], strict_slashes=False)

@@ -1,8 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
-    <content url="file://$MODULE_DIR$" />
+    <content url="file://$MODULE_DIR$/backend">
+      <sourceFolder url="file://$MODULE_DIR$/backend/src" isTestSource="false" />
+    </content>
+    <content url="file://$MODULE_DIR$/frontend" />
     <orderEntry type="jdk" jdkName="Python 3.10.12 WSL (Ubuntu): (/home/ghieth/python-projects/Architectural-Echoes/backend/venv/bin/python)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PyNamespacePackagesService">
+    <option name="namespacePackageFolders">
+      <list>
+        <option value="$MODULE_DIR$/backend/src" />
+        <option value="$MODULE_DIR$/backend/src/config" />
+        <option value="$MODULE_DIR$/backend/src/controllers" />
+        <option value="$MODULE_DIR$/backend/src/middleware" />
+        <option value="$MODULE_DIR$/backend/src/models" />
+        <option value="$MODULE_DIR$/backend/src/services" />
+      </list>
+    </option>
   </component>
 </module>
